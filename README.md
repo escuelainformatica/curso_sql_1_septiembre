@@ -26,4 +26,54 @@ GO
 
 ```
 
-22
+## Como crear una función
+
+```
+CREATE FUNCTION <INDICAR EL NOMBRE>
+(
+<AGREGO LOS ARGUMENTOS>
+)
+RETURNS <INDICO EL TIPO DE DATOS A REGRESAR>
+AS
+BEGIN
+<AQUI VA EL CODIGO>
+END
+GO
+```
+
+## Detalles
+
+1) La función debe regresar un valor.  Lo regreso con la función return <valor>
+
+## Definir una variable dentro de la función
+
+```sql
+declare @variablenueva <tipo de dato>
+-- declare @total int
+-- declare @texto varchar
+```
+
+Las variables solo viven dentro  de la función. 
+
+## Asignar un valor de una variable
+
+```sql
+set @variable=<valor>
+-- o tambien
+select @variable=<valor>
+-- o tambien (usando una consulta)
+select @variable=20 from table where...
+-- ejemplos:
+-- set @total=2000
+-- select @total=sum(id) from tabla
+
+```
+
+## Regresar un valor
+
+```sql
+return <valor>
+-- ejemplo:
+-- return @variable
+```
+
