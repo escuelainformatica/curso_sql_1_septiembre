@@ -198,3 +198,32 @@ select name,
 	from Skus
 ```
 
+## funciones que devuelven una tabla
+
+```sql
+
+CREATE FUNCTION Nombredeciudad_por_pais
+(	
+	@nombrepais varchar(50)
+)
+RETURNS TABLE -- <-- eso indica que devuelve una tabla (y no es necesario usar return)
+AS
+RETURN 
+(
+	-- esta consulta devuelve el ultimo select
+	SELECT Cities.name
+		FROM     Cities INNER JOIN
+						  Countries ON Cities.idCountry = Countries.idCountry
+		WHERE  (Countries.name = @nombrepais)
+)
+GO
+
+```
+
+usar la consulta
+
+```sql
+select * 
+	from dbo.Nombredeciudad_por_pais('chile')
+```
+
